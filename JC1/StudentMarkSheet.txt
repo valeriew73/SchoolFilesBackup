@@ -1,0 +1,12 @@
+
+
+DECLARE StudentNames: ARRAY[1:10] OF STRING
+DECLARE Test1Scores: ARRAY[1:10] OF INTEGER
+DECLARE Test2Scores: ARRAY[1:10] OF INTEGER
+DECLARE TestAvg: ARRAY[1:10] OF INTEGER
+
+FOR index <- 1 TO 10
+    OUTPUT StudentNames[index]
+    TestAvg[index] <- (Test1Scores[index] + Test2Scores[index]) / 2
+NEXT index
+

@@ -1,0 +1,9 @@
+PROCEDURE RandList()
+    prevnum <- 0
+    REPEAT
+        num <- INT(RAND())
+        IF num > prevnum THEN
+            OUTPUT num
+            OutputNum <- OutputNum + 1
+            prevnum <- num
+    UNTIL OutputNum = 25

@@ -1,0 +1,27 @@
+
+PROCEDURE Enqueue(enqueueele)
+    IF QueueLength < Queuefull
+        THEN
+            IF rearPointer = Queuefull - 1
+                THEN
+                    rearPointer <- 0
+                ELSE
+                    rearPointer <- rearPointer + 1
+            ENDIF
+            Queue[rearPointer] <- enqueueele
+            QueueLength <- QueueLength + 1
+        ELSE
+            print("Unable to enqueue, Queue is full.")
+ENDPROCEDURE
+
+FUNCTION Dequeue() RETURNS INTEGER
+    IF QueueLength > 0
+        THEN
+        if frontPointer == Queuefull - 1
+            frontPointer = 0
+        else:
+            frontPointer += 1
+        QueueLength -= 1
+        RETURN Queue[frontPointer]
+    else:
+        print("Unable to dequeue, queue is empty.")

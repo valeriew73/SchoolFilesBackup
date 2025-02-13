@@ -1,0 +1,14 @@
+DECLARE Num1: INTEGER 
+DECLARE Num2: INTEGER 
+
+OUTPUT "Please enter the first number: "
+INPUT Num1
+OUTPUT "Please enter the second number: "
+INPUT Num2
+
+IF Num1 > Num2 
+  THEN 
+      OUTPUT Num1, "is greater than", Num2
+  ELSE 
+      OUTPUT Num2, "is greater than", Num1
+ENDIF

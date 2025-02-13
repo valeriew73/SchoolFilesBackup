@@ -1,0 +1,20 @@
+PROCEDURE printMyName():
+    OUTPUT "My name is Valerie"
+ENDPROCEDURE
+
+CALL printMyName()
+
+PROCEDURE sayHello(ByValue name: STRING): //ByValue takes a parameter of the value put in the bracket, it is by default so you dont have to put "ByValue"
+    OUTPUT "Hello,", name
+ENDPROCEDURE
+
+CALL sayHello("Valerie")
+
+
+PROCEDURE addTwoNumbers(num1: INTEGER, num2: INTEGER):
+    DECLARE sum : INTEGER
+    sum <- num1 + num2
+    OUTPUT "The sum of", num1, "and", num2, "is", sum
+ENDPROCEDURE
+
+CALL addTwoNumbers(9, 1)

@@ -1,0 +1,25 @@
+DECLARE Num1: INTEGER 
+DECLARE Num2: INTEGER 
+DECLARE Num3: INTEGER
+
+OUTPUT "Please enter the first number: "
+INPUT Num1
+OUTPUT "Please enter the second number: "
+INPUT Num2
+OUTPUT "Please enter the third number: "
+INPUT Num3
+
+IF Num1 > Num2 
+  THEN 
+     IF Num1 > Num3
+       THEN
+           OUTPUT Num1, "is the greatest number"
+       ELSE 
+            OUTPUT Num3, "is the greatest number"  
+     ENDIF
+  ELSE 
+     IF Num2 > Num3
+       THEN
+           OUTPUT Num2, "is the greatest number"
+    ENDIF
+ENDIF

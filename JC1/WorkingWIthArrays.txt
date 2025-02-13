@@ -1,0 +1,17 @@
+DECLARE StudentNames: ARRAY[1:10] OF STRING
+DECLARE StudentMarks: ARRAY[1:10] OF INTEGER
+DECLARE Index: INTEGER
+INPUT StudentNames[1] 
+INPUT StudentNames[2] 
+INPUT StudentNames[3] 
+INPUT StudentNames[4] 
+INPUT StudentNames[5] 
+INPUT StudentNames[6] 
+INPUT StudentNames[7] 
+INPUT StudentNames[8] 
+INPUT StudentNames[9] 
+INPUT StudentNames[10]
+
+FOR Index <- 1 TO 10
+    INPUT StudentNames[Index]
+NEXT Index

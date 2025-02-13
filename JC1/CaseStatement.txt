@@ -1,0 +1,50 @@
+Algorithm as pseudocode to input a number between 1 and 7 (inclusive) and output the corresponding day of the week. 
+Output an error messsage if the value is outside the range. Assume that Sunday is the first day of the week.
+
+DECLARE DayNum: INTEGER
+
+OUTPUT "Enter a number between 1 and 7 (inclusive)"
+INPUT DayNum 
+IF Num = 1
+   THEN 
+       OUTPUT "Sunday"
+ELSE IF DayNum = 2
+       THEN
+           OUTPUT "Monday"
+     ELSE IF DayNum = 3
+            THEN 
+                OUTPUT "Tuesday"
+          ELSE IF DayNum = 4
+                 THEN 
+                     OUTPUT "Wednesday"
+               ELSE IF DayNum = 5
+                       THEN
+                           OUTPUT "Thursday"
+                    ELSE IF DayNum = 6
+                           THEN 
+                               OUTPUT "Friday"
+                         ELSE IF DayNum = 7
+                                THEN 
+                                    OUTPUT "Saturday"
+                              ELSE IF DayNum > 7 OR DayNum < 1
+                                      THEN
+                                          OUTPUT "Invalid day number"
+                                   ENDIF
+                             ENDIF
+                         ENDIF
+                    ENDIF
+                ENDIF
+           ENDIF
+     ENDIF
+ENDIF    
+
+CASE OF DayNum
+1 : OUTPUT "Sunday"
+2 : OUTPUT "Monday"
+3 : OUTPUT "Tuesday"
+4 : OUTPUT "Wednesday"
+5 : OUTPUT "Thursday"
+6 : OUTPUT "Friday"
+7 : OUTPUT "Saturday"
+OTHERWISE: OUTPUT "Invalid day number"
+ENDCASE

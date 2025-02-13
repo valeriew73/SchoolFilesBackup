@@ -1,0 +1,27 @@
+
+DECLARE Check: INTEGER
+
+FUNCTION Deviate(Course: REAL) RETURNS REAL
+    
+    RETURN Deviation
+ENDFUNCTION
+
+PROCEDURE Alert() 
+    OUTPUT "ERROR"
+ENDPROCEDURE
+
+
+FUNCTION CheckCourse(Course: REAL) RETURNS INTEGER 
+    Check <- INT(Deviate(Course))
+    Adjust <- 255
+
+    CASE OF Check
+    >=-20 AND <= -1 : Adjust <- 10
+    0 : Adjust <- 0
+    >=1 AND <=20 : Adjust <-
+     -10 
+    OTHERWISE: Alert()
+    ENDCASE
+    
+    RETURN Adjust
+ENDFUNCTION

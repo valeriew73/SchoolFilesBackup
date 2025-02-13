@@ -1,0 +1,29 @@
+DECLARE SearchEle, low, high, mid : INTEGER 
+DECLARE MyArr : ARRAY[1:10] OF INTEGER
+DECLARE Found : BOOLEAN
+
+MyArr <- [2, 3, 6, 8, 19, 23, 27, 58, 84, 92]
+Found <- FALSE
+
+INPUT SearchEle
+low <- 1
+high <- LEN(MyArr)
+
+REPEAT
+    mid <- (low + high) DIV 2
+    IF SearchEle = MyArr[mid]
+        THEN 
+            Found <- TRUE
+        ELSE
+            IF SearchEle < MyArr[mid]
+                THEN 
+                    high <- mid - 1
+                ELSE 
+                    IF SearchEle > MyArr[mid]
+                        THEN 
+                            low <- mid + 1
+                    ENDIF
+            ENDIF
+    ENDIF
+UNTIL Found = TRUE 
+  

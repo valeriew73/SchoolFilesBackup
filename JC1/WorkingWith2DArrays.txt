@@ -1,0 +1,9 @@
+A 2D array is an array of arrays. 
+You can think of it like rows (horizontal) and columns (vertical).
+The indices start with 0 in python and 1 in pseudocode.
+How to access the specific postition in a 2D array: Array[row, column]
+
+How to declare a 2D array:
+DECLARE Arr: ARRAY [1:10, 1:5] OF INTEGERS
+
+OUTPUT Arr[1,1]

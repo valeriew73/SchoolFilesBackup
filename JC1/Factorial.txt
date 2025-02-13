@@ -1,0 +1,12 @@
+FUNCTION fact(num: INTEGER) RETURNS INTEGER
+    Factorial <- 1
+    FOR Count <- 1 TO num
+        Factorial <- Factorial * Count
+    NEXT Count
+    RETURN Factorial
+
+OUTPUT "Enter a number: "
+INPUT num
+TempFactorial <- fact(num)
+OUTPUT "The factorial is", TempFactorial
+

@@ -1,0 +1,16 @@
+// While loop is also called a pre-conditional loop because the condition is tested at the start of the loop
+The body of the loop is executed as long as the cndition is True
+A finite loop is a loop that ends
+An infinite loop never stops looping
+
+WHILE (condition) DO
+     (body of the loop) 
+ENDWHILE
+
+FOR Count <- 1 TO 10
+    OUTPUT "Hello"
+NEXT Count
+
+WHILE Count <= 10 DO
+      OUTPUT "Hello"
+ENDWHILE

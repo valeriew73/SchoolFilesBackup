@@ -1,0 +1,28 @@
+DECLARE stack : ARRAY[0:7] OF INTEGER
+basePointer <- 0
+topPointer <- -1
+Stackful <- LENGTH(stack) - 1
+
+FUNCTION pop() RETURNS INTEGER:
+    IF topPointer = -1 
+        THEN
+            OUTPUT "Unable to pop, stack is empty."
+        ELSE
+            popelement <- stack[topPointer]
+            topPointer <- topPointer - 1
+            RETURN popelement
+ENDFUNCTION
+
+PROCEDURE push(pushelement):
+    IF topPointer = Stackful:
+        THEN
+            OUTPUT "Unable to push, Stack is full."
+        ELSE
+            topPointer <- topPointer + 1
+            stack[topPointer] <- pushelement
+ENDPROCEDURE
+
+FUNCTION peak() RETURNS INTEGER:
+    RETURN stack[topPointer]
+
+

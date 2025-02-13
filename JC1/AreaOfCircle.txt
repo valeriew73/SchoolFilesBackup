@@ -1,0 +1,13 @@
+DECLARE Radius: REAL
+DECLARE Area: REAL
+
+OUTPUT "Enter the Radius of the circle: "
+INPUT Radius
+Area <- PI * Radius* Radius
+
+IF Radius <= 0
+   THEN
+       OUTPUT "Error: Radius can't be less than or equal to 0"
+ELSE
+    Area = PI * Radius * Radius 
+    print("The area of a circle with radius ", Radius, "is", Area, "cm")

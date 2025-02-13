@@ -1,0 +1,21 @@
+FUNCTION addTwoNumbers() RETURNS INTEGER
+    num1 <- 6
+    num2 <- 9
+    sum <- num1 + num2
+    RETURN sum
+ENDFUNCTION
+
+TempSum <- addTwoNumbers()
+print("The sum is", TempSum)
+
+_____________________________________________________________________
+
+FUNCTION addTwoNumbers(num1: INTEGER, num2: INTEGER) RETURNS INTEGER
+    sum <- num1 + num2
+    RETURN sum
+ENDFUNCTION
+
+INPUT num1
+INPUT num2
+TempSum <- addTwoNumbers(num1, num2)
+OUTPUT "The sum is", TempSum

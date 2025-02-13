@@ -1,0 +1,22 @@
+DECLARE Array: ARRAY[1:5] OF INTEGER
+DECLARE Index: INTEGER
+DECLARE Swap: BOOLEAN
+DECLARE Temp: INTEGER
+Top: INTEGER
+Swap <- False
+Index <- 1
+Top <- 5
+
+REPEAT 
+      IF Array[Index] > Array[Index + 1]
+         THEN
+             Temp <- Array[Index]          
+             Array[Index] <- Array[Index + 1]
+             Array[Index + 1] <- Temp
+             Swap <- True
+         ELSE
+             Swap <- False
+      ENDIF
+     Top <- Top - 1
+     Index <- Index + 1
+UNTIL Top = 0 OR Swap = False

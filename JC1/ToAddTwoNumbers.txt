@@ -1,0 +1,32 @@
+Pseudocode to add two numbers:
+
+DECLARE Num1: INTEGER
+DECLARE Num2: INTEGER
+DECLARE Sum: INTEGER
+DECLARE Difference: INTEGER
+DECLARE Product: INTEGER
+DECLARE Quotient: REAL
+DECLARE IntegerQuotient: INTEGER
+DECLARE Remainder: INTEGER
+// a variable is a named location whose value can change during the execution of the program
+// To use a variable, you must declare it and assign a data type to it
+
+OUTPUT "Enter the first number:"
+INPUT Num1
+OUTPUT "Enter the second number:"
+INPUT Num2
+Sum <- Num1 + Num2
+Difference <- Num1 - Num2
+Product <- Num1 * Num2
+Quotient <- Num1 / Num2
+IntegerQuotient <- DIV(Num1, Num2)
+Remainder <- MOD(Num1, Num2)
+
+OUTPUT "First number: ", Num1
+OUTPUT "Second number: ", Num2
+OUTPUT "Sum of", Num1, "and", Num2, "is", sum
+OUTPUT "Difference of the two numbers: ", Difference
+OUTPUT "Product of the two numbers: ", Product
+OUTPUT "Quotient of the two numbers: ", Quotient
+OUTPUT "Integer Quotient of the two numbers: ", IntegerQuotient
+OUTPUT "Remainder of the two numbers: ", Remainder
