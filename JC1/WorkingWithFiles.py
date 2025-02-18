@@ -32,7 +32,7 @@ FileHandle.close
 for index in range(2):
     print(TextFromFile)
 
-#.readlines puts the entire file in an array or strings
+#.readlines puts the entire file in an array of strings
 file = open("Numbers.txt", "r")
 myArr = file.readlines()
 total = 0
