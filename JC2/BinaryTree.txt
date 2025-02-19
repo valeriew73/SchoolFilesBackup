@@ -1,0 +1,26 @@
+// Declare a record structure for type node
+// Declare an array of type node
+
+TYPE Node 
+    DECLARE LeftPointer : INTEGER
+    DECLARE Data : INTEGER
+    DECLARE RightPointer : INTEGER
+ENDTYPE
+
+DECLARE BinaryTree : ARRAY[0:9] OF Node
+DECLARE RootPointer, FreePointer : INTEGER
+
+RootPointer <- 0
+FreePointer <- 0
+
+FOR i <- 0 TO 9 STEP 1
+    BinaryTree[i].LeftPointer <- -1
+    BinaryTree[i].Data <- i + 1
+    BinaryTree[i].RightPointer <- -1
+NEXT i
+BinaryTree[9] <- -1
+
+
+1. Check if there's a free location 
+2. Check RootPointer to see if there's a root node
+
