@@ -4,11 +4,14 @@ DataArray = [None for i in range(100)]
 
 # b)
 def ReadFile():
-    FileHandle = open("IntegerData.txt", 'r')
-    for index in range(100):
-        TextFromFile = FileHandle.readline().strip()
-        DataArray[index] = int(TextFromFile)
-    FileHandle.close
+    try:
+        FileHandle = open("IntegerData.txt", 'r')
+        for index in range(100):
+            TextFromFile = FileHandle.readline().strip()
+            DataArray[index] = int(TextFromFile)
+        FileHandle.close
+    except FileNotFoundError:
+        print("Sorry, the file you are trying to open does not exist. ")
 
 # c)
 def FindValues():

@@ -47,3 +47,6 @@ while NewPlayerScore < 1 and NewPlayerScore > 100000:
 # if insert == True:
 #     temp = NewFileArr[index-1]
 #     index - 1
+
+# Exception = an extreme condition that makes you program crash 
+# can lead to loss of data in files
