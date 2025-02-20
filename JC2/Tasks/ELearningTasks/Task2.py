@@ -6,12 +6,15 @@ ScoresArr = [0 for i in range(11)]
 
 #1 b)
 def ReadHighScores():
-    FileHandle = open("HighScore.txt", 'r')
-    for index in range(10):
-        TextFromFile = FileHandle.readline().strip()
-        NamesArr[index] = TextFromFile[0:3]
-        ScoresArr[index] = int(TextFromFile[3:])
-    FileHandle.close
+    try: 
+        FileHandle = open("C:/Users/Valerie JC2T/Desktop/Valerie Wilson JC1T/JC2/Tasks/ELearningTasks/HighScore.txt", 'r') # Copy the path from file explorer and then replace all the \ with /
+        for index in range(10):
+            TextFromFile = FileHandle.readline().strip()
+            NamesArr[index] = TextFromFile[:3]
+            ScoresArr[index] = int(TextFromFile[3:])
+        FileHandle.close
+    except FileNotFoundError:
+        print("Sorry, the file you are looking for does not exist.")
 
 #1 c)
 def OutputHighScores():
@@ -28,12 +31,27 @@ while len(NewPlayerName) != 3:
     NewPlayerName = input("Player name has to be 3 characters only. Please re-enter: ")
     
 NewPlayerScore = int(input("Please enter their new score: "))
-while NewPlayerScore < 1 and NewPlayerScore > 100000:
+while NewPlayerScore < 1 or NewPlayerScore > 100000:
     NewPlayerScore = input("Player Score must be between 1 and 100000 inclusive. Please re-enter: ")
 
+for index in range(1, len(ScoresArr)):
+    key = ScoresArr[index]
+    j = index - 1
+    while j >= 0 and key < ScoresArr[j]:
+        temp = ScoresArr[j]
+        ScoresArr[j] = ScoresArr[j + 1]
+        ScoresArr[j + 1] = temp
+        temp = NamesArr[j]
+        NamesArr[j] = NamesArr[j + 1]
+        NamesArr[j + 1] = temp
+        j = j - 1
 
+# FileHandle = open("C:/Users/Valerie JC2T/Desktop/Valerie Wilson JC1T/JC2/Tasks/ELearningTasks/HighScore.txt", 'a') # Copy the path from file explorer and then replace all the \ with /
+# for index in range(10):
+#     FileHandle.write(f"{NamesArr[index]} {ScoresArr[index]}\n") 
+# FileHandle.close
 
-
+# OutputHighScores()
 
 # if appropriate, inserts the new player (name and score) into the top ten
 # index = 0
@@ -47,6 +65,3 @@ while NewPlayerScore < 1 and NewPlayerScore > 100000:
 # if insert == True:
 #     temp = NewFileArr[index-1]
 #     index - 1
-
-# Exception = an extreme condition that makes you program crash 
-# can lead to loss of data in files
