@@ -5,7 +5,7 @@ DataArray = [None for i in range(100)]
 # b)
 def ReadFile():
     try:
-        FileHandle = open("IntegerData.txt", 'r')
+        FileHandle = open("C:/Users/School and work/Documents/GitHub/SchoolFilesBackup/JC2/Tasks/ELearningTasks/IntegerData.txt", 'r')
         for index in range(100):
             TextFromFile = FileHandle.readline().strip()
             DataArray[index] = int(TextFromFile)
