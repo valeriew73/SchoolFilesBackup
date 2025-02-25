@@ -11,7 +11,7 @@ myArr = [5, 2, 1, 4, 3]
 top = len(myArr) #top is the index of the last element
 swap = True #assume that swap is True at the start so the program will run + because the array is assumed to start off unsorted
 
-while (swap == True) and (top > 0): #swap var allows the program to terminate early if in a pass there is no swaps (meaning the list is sorted)
+while (swap == True) and (top > 0): #swap var allows the program to terminate early if in a pass there are no swaps (meaning the list is sorted)
     for index in range(0, top - 1):
         if myArr[index] > myArr[index + 1]: #swap algorithm
             temp = myArr[index]
