@@ -18,7 +18,6 @@ def FindValues():
     searchnum = int(input("Please enter a number to search for in the array: "))
     while searchnum < 1 and searchnum > 100:
         searchnum = int(input("Number must be a whole number between 1 and 100 inclusive. Please re-enter: "))
-    
     foundCount = 0
     for i in range(len(DataArray)):
         if searchnum == DataArray[i]:
