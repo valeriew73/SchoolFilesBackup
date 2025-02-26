@@ -44,18 +44,18 @@ binary_tree = [[1, 9, 2],
 free_pointer = 5
 root_pointer = 0
 
-# def searchval(val_to_search):
-#     node_index = root_pointer
-#     while node_index != -1 and val_to_search != binary_tree[node_index][1]:
-#         if val_to_search < binary_tree[node_index][1]:
-#             node_index = binary_tree[node_index][0] # left child
-#         else:
-#             node_index = binary_tree[node_index][2] # right child
+def searchval(val_to_search):
+    node_index = root_pointer
+    while node_index != -1 and val_to_search != binary_tree[node_index][1]:
+        if val_to_search < binary_tree[node_index][1]:
+            node_index = binary_tree[node_index][0] # left child
+        else:
+            node_index = binary_tree[node_index][2] # right child
 
-#     return node_index 
+    return node_index 
 
-# val_to_search = int(input("Please enter a value to search: "))
-# print(searchval(val_to_search))
+val_to_search = int(input("Please enter a value to search: "))
+print(searchval(val_to_search))
 
 def insert_to_tree(element):
     global free_pointer
