@@ -5,7 +5,7 @@ DataArray = [None for i in range(100)]
 # b)
 def ReadFile():
     try:
-        FileHandle = open("IntegerData.txt", 'r')
+        FileHandle = open("C:/Users/School and work/Documents/GitHub/SchoolFilesBackup/JC2/Tasks/ELearningTasks/IntegerData.txt", 'r')
         for index in range(100):
             TextFromFile = FileHandle.readline().strip()
             DataArray[index] = int(TextFromFile)
@@ -18,7 +18,6 @@ def FindValues():
     searchnum = int(input("Please enter a number to search for in the array: "))
     while searchnum < 1 and searchnum > 100:
         searchnum = int(input("Number must be a whole number between 1 and 100 inclusive. Please re-enter: "))
-    
     foundCount = 0
     for i in range(len(DataArray)):
         if searchnum == DataArray[i]:
