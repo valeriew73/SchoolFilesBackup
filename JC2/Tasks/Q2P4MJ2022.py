@@ -10,3 +10,4 @@ for i in range(10):
 for  row in range(10):
     for col in range(10):
         twoDArray[row][col] = random.randint(0, 100)
+
