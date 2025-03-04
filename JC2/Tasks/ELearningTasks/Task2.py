@@ -1,3 +1,4 @@
+
 #1 a)
 NamesArr = [None for i in range(11)]
 ScoresArr = [0 for i in range(11)]
@@ -34,17 +35,40 @@ NewPlayerScore = int(input("Please enter their new score: "))
 while NewPlayerScore < 1 or NewPlayerScore > 100000:
     NewPlayerScore = input("Player Score must be between 1 and 100000 inclusive. Please re-enter: ")
 
-for index in range(1, len(ScoresArr)):
-    key = ScoresArr[index]
-    j = index - 1
-    while j >= 0 and key < ScoresArr[j]:
-        temp = ScoresArr[j]
-        ScoresArr[j] = ScoresArr[j + 1]
-        ScoresArr[j + 1] = temp
-        temp = NamesArr[j]
-        NamesArr[j] = NamesArr[j + 1]
-        NamesArr[j + 1] = temp
-        j = j - 1
+# ii)
+def NewListProc(NewPlayerName, NewPlayerScore):  
+    index = 0
+    Insert = False
+    while index < 10 and Insert == False:
+        if NewPlayerScore >= ScoresArr[index]:
+            Insert = True
+        index += 1
+    index -= 1
+    
+    if Insert == True:
+        i = 0
+        NewNamesList = []
+        NewScoresList = [] 
+        for i in range(10):
+            if i < index:
+                NewScoresList.append(ScoresArr[i])
+                NewNamesList.append(NamesArr[i])
+            if i == index:
+                NewScoresList.append(NewPlayerScore)
+                NewNamesList.append(NewPlayerName)
+            elif i > index:
+                NewScoresList.append(ScoresArr[i-1])
+                NewNamesList.append(NamesArr[i-1])
+        NamesArr = NewNamesList
+        ScoresArr = NewScoresList
+
+# iii)   
+OutputHighScores()   
+NewListProc(NewPlayerName, NewPlayerScore)
+for i in range(10):
+    print(NewNamesList[i], NewScoresList[i])
+
+
 
 # FileHandle = open("C:/Users/Valerie JC2T/Desktop/Valerie Wilson JC1T/JC2/Tasks/ELearningTasks/HighScore.txt", 'a') # Copy the path from file explorer and then replace all the \ with /
 # for index in range(10):
