@@ -38,8 +38,10 @@ def Dequeue():
     else:
         print("Unable to dequeue, queue is empty.")
 
-Enqueue(1)
-print(Queue)
-Enqueue(7)
-print(Queue)
-print(Dequeue())
+# Enqueue(1)
+# print(Queue)
+# Enqueue(7)
+# print(Queue)
+# print(Dequeue())
+
+
