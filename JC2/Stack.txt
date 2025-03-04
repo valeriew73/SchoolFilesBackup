@@ -11,6 +11,7 @@ FUNCTION pop() RETURNS INTEGER:
             popelement <- stack[topPointer]
             topPointer <- topPointer - 1
             RETURN popelement
+    ENDIF
 ENDFUNCTION
 
 PROCEDURE push(pushelement):
@@ -20,9 +21,12 @@ PROCEDURE push(pushelement):
         ELSE
             topPointer <- topPointer + 1
             stack[topPointer] <- pushelement
+    ENDIF
 ENDPROCEDURE
 
 FUNCTION peak() RETURNS INTEGER:
     RETURN stack[topPointer]
+
+ENDFUNCTION
 
 

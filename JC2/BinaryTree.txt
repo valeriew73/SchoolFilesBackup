@@ -40,3 +40,30 @@ ENDFUNCTION
 OUTPUT "Please enter a value to search: "
 INPUT val_to_search
 OUTPUT searchval(val_to_search)
+
+PROCEDURE tree_insert(insert_ele)
+    // Check if there's enough space in the tree (if free pointer = -1: tree is full)
+    IF free_pointer = -1
+        THEN
+            print("The binary tree is full, cannot insert an element.")
+        ELSE
+            new_ele_pointer <- free_pointer
+            free_pointer <- binary_tree[new_ele_pointer][1]
+            ele_pointer <- root_pointer
+        IF root_pointer = -1
+            THEN
+                root_pointer <- new_ele_pointer
+        else:
+            while item_pointer != -1:
+                previous_pointer = item_pointer
+                if element < binary_tree[item_pointer][1]:
+                    left = True
+                    item_pointer = binary_tree[item_pointer][0]
+                elif element > binary_tree[item_pointer][1]:
+                    left = False
+                    item_pointer = binary_tree[item_pointer][2]
+            if left == True:
+                binary_tree[previous_pointer][0] = new_item_pointer
+            else: binary_tree[previous_pointer][2] = new_item_pointer
+        
+        binary_tree[new_item_pointer][1] = element
