@@ -15,15 +15,14 @@ Everytime a function is called, it acts as an interrupt so the last instruction 
 The values of variables, state of the program, etc. is also saved in the call stack.
 The call stack has a maximum capacity due to the RAM so when there's no base case (terminating case) or the base case is not met in a recursive function like in the above example, 
 the function keeps calling itself and the stack becomes full.
-'''
-'''
+
 Recursive function has to have a:
 - Recursive case: the part that calls the function in the definition
 - Base/Terminating case
 '''
-'''
+
 def factorial(num):
-    if num == 1: #base case 
+    if num == 0: #base case (condition where the function returns a known value)
         return 1
     else:
         return num * factorial(num - 1) 
@@ -76,6 +75,26 @@ fib_array = []
 for i in range(1, num_of_ele + 1):
     fib_array.append(fibonacci(i))
 
-'''
 
-# def recursive_binary_search(ele_to_search):
+# MyArr = [2, 3, 6, 8, 19, 23, 27, 58, 84, 92]
+# Found = False
+
+# low = 0
+# high = len(MyArr)
+
+
+# def recursive_binary_search(mid):
+#     SearchEle = int(input("Please enter a value to search: "))
+#     while (Found == False) and (high != low):
+#         if SearchEle == MyArr[mid]:
+#             Found = True
+#         elif SearchEle < MyArr[mid]:
+#             high = mid - 1
+#         elif SearchEle > MyArr[mid]:
+#             low = mid + 1
+#         recursive_binary_search((low + high) // 2)
+
+# if Found == True:
+#     print("Found at", mid)
+# else:
+#     print("Not found")
