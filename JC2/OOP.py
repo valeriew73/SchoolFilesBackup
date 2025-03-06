@@ -1,7 +1,7 @@
 # Object-oriented programming makes it easier to solve real-world problems (by looking at objects in the real world as objects)
 # Class = a collection of all the attributes (called properties), and methods for each object of that class
 # Object = an instance of a class, and from 1 class you can create any number of instances
-# Abstraction, Encapsulation (Combining all the data and methods that can be done together, this is also used in data hiding) are used in OOP
+# Abstraction, Inheritance, Polymotphism, Encapsulation (Combining all the data and methods that can be done together, this is also used in data hiding) are used in OOP
 # OOP uses data hiding so that private data cannot be accessed
 # Convention standard for defining a class = make the first letter
 # You can put all the classes in one file separate from the main program and use it as a library
@@ -48,7 +48,7 @@ class Person:
     person_count = 0 #class variable
     def __init__(self, name, DoB, gender):
         self.name = name # of type string, this is an instance variable
-        self.__DoB = DoB # of type Date (putting a double underscore (__) makes a public attribute private, so it can't be accessed and altered)
+        self.__DoB = DoB # of type Date (putting a double underscore (__) makes a public attribute private, so it can't be accessed and altered without a getter/setter)
         self.__gender = gender # of type string
         Person.person_count += 1 #this is accessing the class variable everytime an instance is made
     
@@ -67,6 +67,12 @@ class Person:
     
     def setDoB(self, new_DoB):
         self.__DoB = new_DoB
+    def setGender(self, new_gender):
+        self.__gender = new_gender
+
+    def printDetails(self):
+        print(f"Name: {self.name}, Age: {self.__DoB}, Gender: {self.__gender}")
+
 
 person1 = Person("Shuaib", "20/07/1960", "Male")
 person2 = Person("John", "01/02/1999", "Male")
@@ -77,4 +83,31 @@ print(person1.name, person1.getDoB(), person1.getGender())
 print(person1.__dict__)
 person1.setDoB("09/08/1998")
 
+# Inheritance: classes can be based off an existing class, which means the child/sub class inherits all the methods and properties from the parent/super class
+# Any number of classes can be inherited from a parent class
+# The subclass can have its own specific methods and properties that are not shared between them
+# (Don't use this: ) Multiple Inheritance = A subclass can have multiple superclasses (complexity, errors and inconsistency problems) (Usually using the constructor from the parent = ParentClass.init())
+# Polymorphism = When a subclass redefines/modifies a method inherited from a superclass
+# Method overriding = allows you to have multiple methods of the same name but with different numbers/types/orders of arguments (not to be confused with polymorphism)
 
+# Teacher is a subclass of Person, and it inherits all the methods and properties
+class Teacher(Person):
+    #pass (if you put pass here everything from the parent class will be passed. The constructor being used is the parent's)
+    def __init__(self, name, DoB, gender, salary): 
+        super().__init__(self, name, DoB, gender) #inherits the constructor from the parent class
+        self.salary = salary #salary is a property unique to Teacher
+    def printDetails(self):
+        print(f"Name: {self.name}, Age: {self.getDoB()}, Gender: {self.getGender()}, Salary: {self.salary}") # Private properties of a parent class cannot be accessed directly when creating a subclass, you need to use a getter
+
+teacher1 = Person("Allan", "15/04/2009", "Male", 2000)
+teacher1.printDetails()
+
+class Student(Person):
+    def __init__(self, name, DoB, gender, grade): 
+        super().__init__(self, name, DoB, gender)
+        self.grade = grade
+    def printDetails(self):
+        print(f"Name: {self.name}, Age: {self.getDoB()}, Gender: {self.getGender()}, Grade: {self.grade}") 
+
+student1 = Student("Valerie", "25/01/2008", "Female", "12")
+student1.printDetails()
