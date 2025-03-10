@@ -8,7 +8,7 @@
 # Class diagrams are drawn when creating classes (check notes)
 # Two types of variables: Class variables and instance variable
 
-
+'''
 class Car: #Car is a class, which can later be used in declaring an object
     car_count = 0 #class variable = not part of the constructor, which means that it belongs to every object so when it is updated, it gets updated for every object
     def __init__(self, make, model, colour): #Constructor (python calls it initialiser) = A special method inside the class used to construct the object to create personalised objects which can be changed while methods are running
@@ -91,7 +91,7 @@ person1.setDoB("09/08/1998")
 # Method overriding = allows you to have multiple methods of the same name but with different numbers/types/orders of arguments (not to be confused with polymorphism)
 
 # Teacher is a subclass of Person, and it inherits all the methods and properties
-class Teacher(Person):
+class Teacher(Person): #Teacher is a Person
     #pass (if you put pass here everything from the parent class will be passed. The constructor being used is the parent's)
     def __init__(self, name, DoB, gender, salary): 
         super().__init__(self, name, DoB, gender) #inherits the constructor from the parent class
@@ -111,3 +111,50 @@ class Student(Person):
 
 student1 = Student("Valerie", "25/01/2008", "Female", "12")
 student1.printDetails()
+'''
+
+# Containment/Aggregation and Composition: 
+# Class A has Class B (instead of Class A is Class B like in inheritance)
+
+# Composition = life expectancy of one class is dependent of the other class. if the part cannot exist when the whole is destroyed, the relationship between the two classes is composition 
+# Containment = life expectancy of one class is not dependent of the other class. if the part can exist when the whole is destroyed, the relationship between the two classes is containment
+
+class Library:
+    def __init__(self, name):
+        self.__name = name # of type string
+        self.books = []
+
+    def getSelf(self):
+        return self.__name
+    
+    def addBook(self, book):
+        self.books.append(book)
+
+    def printLibraryBooks(self):
+        for book in self.books:
+            print(f"  {book.title}\nBy: {book.author}\nPrice: {book.price}")
+
+class Book:
+    def __init__(self, title, author, price):
+        self.title = title # of type string
+        self.author = author # of type string
+        self.price = price # of type real
+
+bbs_library = Library("Bina Bangsa School Library")
+book1 = Book("Frankenstein", "Mary Shelley", 23.00)
+book2 = Book("Learning Kali Linux", "Ric Messier", 49.99)
+
+# bbs_library.addBook(book1)
+# bbs_library.printLibraryBooks()
+
+#Method overriding
+a = 5
+b = 6 
+c = 7 
+def add(a, b):
+    print(a + b)
+def add(a, b, c):
+    print(a + b + c)
+
+add(a, b)
+add(a, b, c)
