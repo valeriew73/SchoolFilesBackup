@@ -1,0 +1,71 @@
+# If you want to store anything other than text, you need to use a binary file (.dat) (ex. for records)
+# opening is the same, but:
+# instead of readline, use getrecord
+# instead of writeline, use putrecord
+
+// For sequential and serial files: OPENFILE "NewFile.dat" FOR (MODE)
+// For random files: OPENFILE "NewFile.dat" FOR RANDOM //this mode allows for both read and write
+
+
+TYPE TStudentRec
+    DECLARE StudentID : INTEGER
+    DECLARE Name : STRING
+ENDTYPE
+
+DECLARE Student : TStudentRec
+DECLARE StudentFile : STRING
+StudentFile <- "StudentInfo.dat"
+
+// For serial files:
+OPENFILE StudentFile FOR APPEND
+Stop <- FALSE
+WHILE Stop <> TRUE DO 
+    OUTPUT "Please enter the student ID: "
+    INPUT Student.StudentID
+    OUTPUT "Please enter the student name: "
+    INPUT Student.Name
+    PUTRECORD StudentFile, Student
+    OUTPUT "Would you like to stop? "
+    INPUT Stop
+ENDWHILE
+CLOSEFILE StudentFile
+
+OPENFILE StudentFile FOR READ
+WHILE NOT EOF(StudentFile) DO
+    GETRECORD StudentFile, Student
+    OUTPUT Student.StudentID, Student.Name
+ENDWHILE
+CLOSEFILE StudentFile
+
+// For sequential files:
+DECLARE Student, StudentTemp : TStudentRec
+DECLARE StudentFile, StudentNewFile : STRING
+DECLARE RecAdded : BOOLEAN
+StudentFile <- "StudentInfo.dat"
+
+// To add just 1 record into the file
+OPENFILE StudentFile FOR READ
+OUTPUT "Please enter the student ID: "
+INPUT Student.StudentID
+OUTPUT "Please enter the student name: "
+INPUT Student.Name
+RecAdded <- FALSE
+WHILE RecAdded = FALSE DO
+    GETRECORD StudentFile, StudentTemp
+    IF StudentTemp.StudentID < Student.StudentID 
+        THEN
+            PUTRECORD StudentNewFile, StudentTemp
+        ELSE
+            PUTRECORD StudentNewFile, Student
+            RecAdded <- TRUE
+    ENDIF
+ENDWHILE
+WHILE NOT EOF(StudentFile) DO
+    GETRECORD StudentFile, StudentTemp
+    PUTRECORD StudentNewFile, StudentTemp
+ENDWHILE
+
+CLOSEFILE StudentFile
+CLOSEFILE StudentNewFile
+DELETE StudentFile
+RENAME StudentNewFile, StudentFile
