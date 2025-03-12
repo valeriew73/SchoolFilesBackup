@@ -50,7 +50,7 @@ INPUT Student.StudentID
 OUTPUT "Please enter the student name: "
 INPUT Student.Name
 RecAdded <- FALSE
-WHILE RecAdded = FALSE DO
+WHILE RecAdded = FALSE AND NOT EOF(StudentFile) DO
     GETRECORD StudentFile, StudentTemp
     IF StudentTemp.StudentID < Student.StudentID 
         THEN
@@ -64,8 +64,43 @@ WHILE NOT EOF(StudentFile) DO
     GETRECORD StudentFile, StudentTemp
     PUTRECORD StudentNewFile, StudentTemp
 ENDWHILE
-
+IF EOF(StudentFile) 
+    THEN 
+        PUTRECORD StudentNewFile, Student
+    ELSE
+        WHILE NOT EOF(StudentFile) DO
+            GETRECORD StudentFile, StudentTemp
+            PUTRECORD StudentNewFile, StudentTemp
+        ENDWHILE
+ENDIF
 CLOSEFILE StudentFile
 CLOSEFILE StudentNewFile
 DELETE StudentFile
 RENAME StudentNewFile, StudentFile
+
+
+// Random Files
+
+DECLARE Student : TStudentRec
+DECLARE StudentFile : STRING
+DECLARE RecordAddress : INTEGER
+StudentFile <- "StudentInfo.dat"
+
+OPENFILE StudentFile FOR RANDOM
+OUTPUT "Please enter the student ID: "
+INPUT Student.StudentID
+OUTPUT "Please enter the student name: "
+INPUT Student.Name
+PUTRECORD StudentFile, Student
+
+//To add a record
+RecordAddress <- Hash(Student.StudentID) //using a hash function to calculate the address of the record to be added using the key field (in this case, the student ID)
+SEEK(StudentFile, Address) //Moves the pointer to the address of the record to be added
+PUTRECORD StudentFile, Student
+// If there's another record at the same location, the previous record is overwritten (solution: using a closed and open hash)
+
+//To find a record
+RecordAddress <- Hash(Student.StudentID)
+SEEK(StudentFile, Address)
+GETRECORD StudentFile, Student
+CLOSEFILE StudentFile

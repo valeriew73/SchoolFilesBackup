@@ -8,7 +8,7 @@
 # Class diagrams are drawn when creating classes (check notes)
 # Two types of variables: Class variables and instance variable
 
-'''
+
 class Car: #Car is a class, which can later be used in declaring an object
     car_count = 0 #class variable = not part of the constructor, which means that it belongs to every object so when it is updated, it gets updated for every object
     def __init__(self, make, model, colour): #Constructor (python calls it initialiser) = A special method inside the class used to construct the object to create personalised objects which can be changed while methods are running
@@ -111,7 +111,6 @@ class Student(Person):
 
 student1 = Student("Valerie", "25/01/2008", "Female", "12")
 student1.printDetails()
-'''
 
 # Containment/Aggregation and Composition: 
 # Class A has Class B (instead of Class A is Class B like in inheritance)
