@@ -18,12 +18,30 @@ linkedList = [node(1, 1),
               node(0, 9),
               node(0, -1)]
 
-# c)
+# c) i)
 startPointer = 0
 emptyList = 5
 def outputNodes(linkedList, startPointer):
-    
+    node_index = startPointer
+    while linkedList[node_index].nextNode != -1:
+        print(linkedList[node_index].data)
+        node_index = linkedList[node_index].nextNode
+    print(linkedList[node_index].data)
+    return node_index
 
+node_index = outputNodes(linkedList, startPointer)
+
+# d)
+def addNode(linkedList, startPointer, emptyList, node_index):
+    data = int(input("Enter the data to be added: "))
+    node_index = linkedList[node_index].nextNode
+    linkedList[node_index].data = data
+    emptyList -= 1
+
+addNode(linkedList, startPointer, emptyList, node_index)
+
+
+'''
 #question2
 arrayData = [None for i in range(10)]
 arrayData = [10, 5, 6, 7, 1, 12, 13, 15, 21, 8]
@@ -56,3 +74,4 @@ def bubbleSort():
                 temp = theArray[y]
                 theArray[y] = theArray[y+1]
                 theArray[y+1] = temp
+'''
