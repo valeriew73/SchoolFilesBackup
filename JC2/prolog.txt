@@ -1,0 +1,39 @@
+capitalCity(paris). /* Paris is a captical city. */
+capitalCity(berlin).
+capitalCity(cairo).
+capitalCity(jakarta). /* capitalCity(jakarta). -> OUTPUT: true*/
+cityInCountry(paris, france). /* Paris is a city in France.*/
+cityInCountry(berlin, germany). /* Berlin is a city in Germany. */
+cityInCountry(cairo, egypt). /* Cairo is a city in Egypt. */
+cityInCountry(munich, germany). /* Munich is a city in Germany. */
+
+
+/* Next Section */
+
+vegetable(aubergine). /* aubergine is a vegetable */
+vegetable(potato).
+vegetable(tomato).
+meat(chicken). /* chicken is a type of meat */
+meat(beef).
+meat(lamb).
+ingredient(tangine, aubergine, 250). /* tangine contains 250g of aubergine */
+ingredient(tangine, tomato, 100).
+ingredient(stew, beef, 400).
+ingredient(stew, potato, 600).
+
+/* Next Section */
+
+parent(fred, jack). /* Fred is the father of Jack. */
+parent(fred, alia).
+parent(fred, paul).
+parent(dave, fred).
+/* Defining Rules */
+grandparent(G, S) :- /* G is the grandparent of S IF (:-) G is the parent of P and P is the parent of S */ 
+    parent(G, P), 
+    parent(P, S). 
+siblings(Person, Sibling) :- 
+    parent(P, Person), 
+    parent(P, Sibling), 
+        Person \= Sibling.
+
+/* and = ,   or = ;   not = \ */

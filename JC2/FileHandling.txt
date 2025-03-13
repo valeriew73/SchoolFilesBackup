@@ -1,0 +1,106 @@
+# If you want to store anything other than text, you need to use a binary file (.dat) (ex. for records)
+# opening is the same, but:
+# instead of readline, use getrecord
+# instead of writeline, use putrecord
+
+// For sequential and serial files: OPENFILE "NewFile.dat" FOR (MODE)
+// For random files: OPENFILE "NewFile.dat" FOR RANDOM //this mode allows for both read and write
+
+
+TYPE TStudentRec
+    DECLARE StudentID : INTEGER
+    DECLARE Name : STRING
+ENDTYPE
+
+DECLARE Student : TStudentRec
+DECLARE StudentFile : STRING
+StudentFile <- "StudentInfo.dat"
+
+// For serial files:
+OPENFILE StudentFile FOR APPEND
+Stop <- FALSE
+WHILE Stop <> TRUE DO 
+    OUTPUT "Please enter the student ID: "
+    INPUT Student.StudentID
+    OUTPUT "Please enter the student name: "
+    INPUT Student.Name
+    PUTRECORD StudentFile, Student
+    OUTPUT "Would you like to stop? "
+    INPUT Stop
+ENDWHILE
+CLOSEFILE StudentFile
+
+OPENFILE StudentFile FOR READ
+WHILE NOT EOF(StudentFile) DO
+    GETRECORD StudentFile, Student
+    OUTPUT Student.StudentID, Student.Name
+ENDWHILE
+CLOSEFILE StudentFile
+
+// For sequential files:
+DECLARE Student, StudentTemp : TStudentRec
+DECLARE StudentFile, StudentNewFile : STRING
+DECLARE RecAdded : BOOLEAN
+StudentFile <- "StudentInfo.dat"
+
+// To add just 1 record into the file
+OPENFILE StudentFile FOR READ
+OUTPUT "Please enter the student ID: "
+INPUT Student.StudentID
+OUTPUT "Please enter the student name: "
+INPUT Student.Name
+RecAdded <- FALSE
+WHILE RecAdded = FALSE AND NOT EOF(StudentFile) DO
+    GETRECORD StudentFile, StudentTemp
+    IF StudentTemp.StudentID < Student.StudentID 
+        THEN
+            PUTRECORD StudentNewFile, StudentTemp
+        ELSE
+            PUTRECORD StudentNewFile, Student
+            RecAdded <- TRUE
+    ENDIF
+ENDWHILE
+WHILE NOT EOF(StudentFile) DO
+    GETRECORD StudentFile, StudentTemp
+    PUTRECORD StudentNewFile, StudentTemp
+ENDWHILE
+IF EOF(StudentFile) 
+    THEN 
+        PUTRECORD StudentNewFile, Student
+    ELSE
+        WHILE NOT EOF(StudentFile) DO
+            GETRECORD StudentFile, StudentTemp
+            PUTRECORD StudentNewFile, StudentTemp
+        ENDWHILE
+ENDIF
+CLOSEFILE StudentFile
+CLOSEFILE StudentNewFile
+DELETE StudentFile
+RENAME StudentNewFile, StudentFile
+
+
+// Random Files
+
+DECLARE Student : TStudentRec
+DECLARE StudentFile : STRING
+DECLARE RecordAddress : INTEGER
+StudentFile <- "StudentInfo.dat"
+
+OPENFILE StudentFile FOR RANDOM
+OUTPUT "Please enter the student ID: "
+INPUT Student.StudentID
+OUTPUT "Please enter the student name: "
+INPUT Student.Name
+PUTRECORD StudentFile, Student
+
+//To add a record
+RecordAddress <- Hash(Student.StudentID) //using a hash function to calculate the address of the record to be added using the key field (in this case, the student ID)
+SEEK(StudentFile, Address) //Moves the pointer to the address of the record to be added
+PUTRECORD StudentFile, Student
+// If there's another record at the same location, the previous record is overwritten (solution: using a closed and open hash)
+
+//To find a record
+RecordAddress <- Hash(Student.StudentID)
+SEEK(StudentFile, Address)
+GETRECORD StudentFile, Student
+CLOSEFILE StudentFile

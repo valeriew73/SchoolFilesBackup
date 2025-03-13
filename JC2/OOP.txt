@@ -1,0 +1,45 @@
+CLASS Person
+    PUBLIC Name: STRING // Don't use declare, use PRIVATE or PUBLIC instead to denote the properties
+    PRIVATE Age: INTEGER
+
+    //Methods must be public 
+    PUBLIC PROCEDURE NEW(PName: STRING, PAge:INTEGER) //NEW is used as a constructor in pseudocode, and you con't have to pass self into it
+        Name <- PName
+        Age <- PAge
+    ENDPROCEDURE
+
+    PUBLIC PROCEDURE SetAge(PAge: INTEGER)
+        Age <- PAge
+    ENDPROCEDURE
+
+    PUBLIC FUNCTION GetAge() RETURNS INTEGER
+        RETURN Age
+    ENDFUNCTION
+ENDCLASS
+
+CLASS Student INHERITS Person
+    PRIVATE Grade: CHAR
+
+    PUBLIC PROCEDURE NEW(PName: STRING, PAge: INTEGER, PGrade: CHAR)
+        SUPER.NEW(PName, PAge)
+        Grade <- PGrade
+    ENDPROCEDURE
+
+    PUBLIC PROCEDURE SetGrade(PGrade: CHAR)
+        Grade <- PGrade
+    ENDPROCEDURE
+
+    PUBLIC FUNCTION GetGrade() RETURNS CHAR
+        RETURN Grade
+    ENDFUNCTION
+ENDCLASS
+
+Student1 <- NEW Student("Ian", 15, 'A')
+Student2 <- NEW Student("Emily", 15, 'A')
+
+OUTPUT Student1.Name
+OUTPUT Student1.GetAge()
+OUTPUT Student1.GetGrade()
+
+Student1.SetGrade('B')
+

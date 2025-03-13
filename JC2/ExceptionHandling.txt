@@ -1,0 +1,12 @@
+TRY
+    OPENFILE StudentFile FOR READ
+EXCEPT
+    OUTPUT "File not found!"
+ENDTRY
+
+
+TRY
+    Quot <- Num1 / Num2
+EXCEPT
+    OUTPUT "Division by 0 is not possible."
+ENDTRY
