@@ -37,7 +37,7 @@ file = open("Numbers.txt", "r")
 myArr = file.readlines()
 total = 0
 for totalcount in range(10):
-    total += int(myArr[totalcount].strip)
+    total += int(myArr[totalcount].strip())
 for index in range(2):
     print(total)
 file.close()

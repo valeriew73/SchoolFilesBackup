@@ -93,3 +93,24 @@ def bubbleSort():
                 temp = theArray[y]
                 theArray[y] = theArray[y+1]
                 theArray[y+1] = temp
+
+#3. a)
+class TreasureChest:
+    def __init__(self, question, answer, points):
+        self.__question = question #of type string
+        self.__answer = answer #of type integer
+        self.__points = points #of type integer
+
+    def getQuestion(self):
+        return self.__question
+    
+    def checkAnswer(self, user_answer):
+        if user_answer == self.__answer:
+            return True
+        else: return False
+
+    def getPoints(self):
+        return self.__points    
+    
+def readData():
+    file = 
