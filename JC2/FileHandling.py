@@ -8,9 +8,23 @@
 import pickle
 # (load and dump)
 
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-class Studentrecord:
-    def __init__(self, studentID, studentClass):
-        self.studentID = studentID
-        self.studentClass = studentClass
+student1 = Student("Alex", 16)
+student2 = Student("Fiona", 14)
 
+file = open("Student.dat", 'wb') #wb is write mode for binary
+pickle.dump(student1, file) #dumping/writing student1 into the file 
+pickle.dump(student2, file)
+file.close()
+
+file = open("Student.dat", 'rb') #rb is read mode for binary
+tempStudent = pickle.load(file) #loading/reading the file into tempStudent 
+tempStudent2 = pickle.load(file)
+file.close()
+
+print(tempStudent.name, tempStudent.age)
+print(tempStudent2.name, tempStudent2.age)
