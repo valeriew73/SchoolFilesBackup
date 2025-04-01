@@ -115,13 +115,14 @@ DisplayQueue()
 myArray = [-1 for i in range(10)] #of type integer
 
 def ReadNumbers():
+    global myArray
     NumbersFile = open("Numbers.txt", 'r')
     for i in range(10):
-        Number = NumbersFile.readline().strip()
-        myArray[i] = Number
+        myArray[i] = NumbersFile.readline().strip()
     NumbersFile.close()
     
 def OutputNumbers():
+    global myArray
     for ele in myArray:
         print(ele)
 
@@ -129,6 +130,7 @@ ReadNumbers()
 OutputNumbers()
 
 def InsertionSort():
+    global myArray
     for i in range(1, len(myArray)):
         key = myArray[i]
         j = i-1
