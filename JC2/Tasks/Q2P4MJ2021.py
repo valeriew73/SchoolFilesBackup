@@ -1,3 +1,4 @@
+'''
 #question 1
 #1. a)
 class node:
@@ -93,7 +94,7 @@ def bubbleSort():
                 temp = theArray[y]
                 theArray[y] = theArray[y+1]
                 theArray[y+1] = temp
-
+'''
 #3. a)
 class TreasureChest:
     def __init__(self, question, answer, points):
@@ -104,13 +105,54 @@ class TreasureChest:
     def getQuestion(self):
         return self.__question
     
-    def checkAnswer(self, user_answer):
-        if user_answer == self.__answer:
+    def checkAnswer(self, userAnswer):
+        if userAnswer == self.__answer:
             return True
         else: return False
 
-    def getPoints(self):
-        return self.__points    
+    def getPoints(self, attempts):
+        if attempts == 1:
+            return self.__points
+        elif attempts == 2:
+            return int(self.__points)//2
+        elif attempts == 3 or attempts == 4:
+            return int(self.__points)//4
+        else: return 0
+          
+    def setQuestion(self, newQuestion):
+        self.__question = newQuestion
+        
+    def setAnswer(self, newAnswer):
+        self.__answer = newAnswer
+
+    def setPoints(self, newPoints):
+        self.__question = newPoints
     
+#3. b)
+arrayTreasure = [] #of type TreasureChest
 def readData():
-    file = 
+    try:
+        file = open("C:/Users/School and work/Documents/GitHub/SchoolFilesBackup/JC2/Tasks/TreasureChestData.txt", 'r')
+        for i in range(5):
+            question = file.readline().strip()
+            answer = int(file.readline().strip())
+            points = int(file.readline().strip())
+            arrayTreasure.append(TreasureChest(question, answer, points))
+        file.close()
+    except FileNotFoundError:
+        print("File is not found.")
+
+# c) iv)
+readData()
+
+questionNumber = int(input("Please enter a number between 1 and 5: "))
+print(f"Question: {arrayTreasure[questionNumber-1].getQuestion()}")
+correct = False
+attempts = 0
+while not correct:
+    userAnswer = int(input("Enter your answer here: "))
+    correct = arrayTreasure[questionNumber-1].checkAnswer(userAnswer)
+    attempts += 1
+
+print(f"You have been awarded {arrayTreasure[questionNumber-1].getPoints(attempts)} points.")
+

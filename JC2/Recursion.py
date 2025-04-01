@@ -25,7 +25,7 @@ def factorial(num):
     if num == 0: #base case (condition where the function returns a known value)
         return 1
     else:
-        return num * factorial(num - 1) 
+        return num * factorial(num - 1)
 # factorial complexity
 
 # print(factorial(999))

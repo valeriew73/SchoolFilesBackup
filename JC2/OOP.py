@@ -1,11 +1,11 @@
 # Object-oriented programming makes it easier to solve real-world problems (by looking at objects in the real world as objects)
 # Class = a collection of all the attributes (called properties), and methods for each object of that class
 # Object = an instance of a class, and from 1 class you can create any number of instances
-# Abstraction, Inheritance, Polymotphism, Encapsulation (Combining all the data and methods that can be done together, this is also used in data hiding) are used in OOP
+# Abstraction, Inheritance, Polymorphism, Encapsulation (Combining all the data and methods that can be done together, this is also used in data hiding) are used in OOP
 # OOP uses data hiding so that private data cannot be accessed
-# Convention standard for defining a class = make the first letter
+# Convention standard for defining a class = make the first letter a capital letter
 # You can put all the classes in one file separate from the main program and use it as a library
-# Class diagrams are drawn when creating classes (check notes)
+# Class diagrams are drawn when creating classes (check notes for an example)
 # Two types of variables: Class variables and instance variable
 
 
