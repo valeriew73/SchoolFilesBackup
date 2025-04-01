@@ -13,7 +13,7 @@ def ReadHighScores():
             TextFromFile = FileHandle.readline().strip()
             NamesArr[index] = TextFromFile[:3]
             ScoresArr[index] = int(TextFromFile[3:])
-        FileHandle.close
+        FileHandle.close()
     except FileNotFoundError:
         print("Sorry, the file you are looking for does not exist.")
 
