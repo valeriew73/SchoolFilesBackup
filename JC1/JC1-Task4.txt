@@ -1,0 +1,83 @@
+// 1
+FUNCTION MakeString(GivenCount:INTEGER, Char1:CHARACTER) RETURNS STRING
+    DECLARE Count: INTEGER
+    DECLARE ResString: STRING
+    ResString <- ""
+    IF Count < 1
+        THEN
+            RETURN "ERROR"
+        ELSE
+            FOR Count <- 1 TO GivenCount
+                ResString <- ResString & Char1
+            NEXT Count
+            RETURN ResString
+    ENDIF
+ENDFUNCTION
+
+// 2
+PROCEDURE Select(Start:INTEGER, End:INTEGER)
+    DECLARE Value: INTEGER
+    DECLARE StrValue: STRING
+    FOR Value <- (Start+1) TO (End-1)
+        StrValue <- NUM_TO_STR(Value)
+        IF STR_TO_NUM(MID(StrValue, LENGTH(StrValue)-1, 1)) + STR_TO_NUM(RIGHT(StrValue, 1) = 6)
+            THEN
+                OUTPUT StrValue
+        ENDIF
+    NEXT
+ENDPROCEDURE
+
+// 3a
+FUNCTION ChangeSupp(Code1:STRING, Code2:STRING) RETURNS Count
+    DECLARE Line, NewLine, NewStockHandle, StockHandle: STRING
+    DECLARE Count: INTEGER
+    Count <- 0
+    NewStockHandle <- "NewStock.txt"
+    StockHandle <- "Stock.txt"
+    // You can't open two files of the same mode at the same time but you can if they are not in the same mode
+    OPEN StockHandle FOR READ
+    OPEN NewStockHandle FOR APPEND
+    WHILE NOT EOF(StockHandle)
+        READFILE StockHandle, Line
+        IF MID(Line, 5, 3) = Code1
+            THEN
+                NewLine <- LEFT(Line, 4) & Code2 & RIGHT(Line, LENGTH(Line)-7) 
+                Count <- Count + 1
+        ENDIF
+        WRITEFILE NewStockHandle, NewLine
+        RETURN Count
+    ENDWHILE
+    CLOSFILE NewStockHandle
+    CLOSEFILE StockHandle
+ENDFUNCTION
+
+// b
+PROCEDURE Report_1(PSupplierCode: STRING)
+    DECLARE StockHandle: STRING
+    DECLARE Count: INTEGER
+    StockHandle <- "Stock.txt"
+    Count <- 0
+    OPEN StockHandle FOR READ
+    OUTPUT "Report for Supplier: DRG"
+    OUTPUT "Item   Description"
+    WHILE NOT EOF(StockHandle)
+        READFILE StockHandle, Line
+        IF MID(Line, 5, 3) = PSupplierCode
+            THEN
+                OUTPUT LEFT(Line, 4), "   ", RIGHT(Line, LENGTH(Line)-7)
+                Count <- Count + 1
+        ENDIF
+    ENDWHILE
+    OUTPUT "Number of items listed:", Count
+    CLOSEFILE StockHandle
+ENDPROCEDURE
+
+
+// c i 
+Another iteration and conditional would probably need to be used to count the number of items listed beforehand because it has to be printed before the main part where the item 
+and description is being printed. This will increase the complexity of the algorithm because more lines of instructions need to be executed.
+
+// ii 
+The algorithm could write all the items and descriptions into an array of string. The number of items listed would also be counted in the same loop, as the file is being read, so there
+is no need to read the file twice to count the number of items listed and to output the items and descriptions. After the entire file is read, the number of items listed would be printed 
+first and then the array could be printed.
