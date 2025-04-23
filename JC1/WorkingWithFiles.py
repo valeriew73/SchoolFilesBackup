@@ -1,14 +1,17 @@
+# Always use exception handling when handling files so that if the file is not found, the program will not crash
+try:
+    # OPENFILE "StudentNames.txt" FOR WRITE
+    #Files can be opened in read, write or append mode (r,w) or a) (don't use r+ mode because it opens the file for both read and write mode)
+    FileHandle = open("StudentNames.txt", "w")
 
-# OPENFILE "StudentNames.txt" FOR WRITE
-#Files can be opened in read, write or append mode (r,w) or a) (don't use r+ mode because it opens the file for both read and write mode)
-FileHandle = open("StudentNames.txt", "w")
+    #write operations
+    FileHandle.write("Line 1\n")
+    FileHandle.write("Line 2\n") #\n makes an enter (goes to the next line)
 
-#write operations
-FileHandle.write("Line 1\n")
-FileHandle.write("Line 2\n") #\n makes an enter (goes to the next line)
-
-#Every opened file must be closed when you are done with it
-FileHandle.close()
+    #Every opened file must be closed when you are done with it
+    FileHandle.close()
+except FileNotFoundError:
+    print("File was not found.")
 
 # The previously written lines are overwritten once the file is opened again in write mode
 FileHandle = open("StudentNames.txt", "w")
