@@ -20,7 +20,7 @@ PROCEDURE Select(Start:INTEGER, End:INTEGER)
     DECLARE StrValue: STRING
     FOR Value <- (Start+1) TO (End-1)
         StrValue <- NUM_TO_STR(Value)
-        IF STR_TO_NUM(MID(StrValue, LENGTH(StrValue)-1, 1)) + STR_TO_NUM(RIGHT(StrValue, 1) = 6)
+        IF STR_TO_NUM(MID(StrValue, LENGTH(StrValue)-1, 1)) + STR_TO_NUM(RIGHT(StrValue, 1)) = 6
             THEN
                 OUTPUT StrValue
         ENDIF
