@@ -76,25 +76,3 @@ for i in range(1, num_of_ele + 1):
     fib_array.append(fibonacci(i))
 
 
-# MyArr = [2, 3, 6, 8, 19, 23, 27, 58, 84, 92]
-# Found = False
-
-# low = 0
-# high = len(MyArr)
-
-
-# def recursive_binary_search(mid):
-#     SearchEle = int(input("Please enter a value to search: "))
-#     while (Found == False) and (high != low):
-#         if SearchEle == MyArr[mid]:
-#             Found = True
-#         elif SearchEle < MyArr[mid]:
-#             high = mid - 1
-#         elif SearchEle > MyArr[mid]:
-#             low = mid + 1
-#         recursive_binary_search((low + high) // 2)
-
-# if Found == True:
-#     print("Found at", mid)
-# else:
-#     print("Not found")

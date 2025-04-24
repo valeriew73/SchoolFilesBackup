@@ -1,6 +1,6 @@
 # Operates on the FIFO protocol
 # Can be circular or linear
-# Operations: Push, Pop and Peak (to get the element on the top of the stack)
+# Operations: enqueue, dequeue
 # Pointers: Front pointer (points to the first location), Rear pointer (points to the last element in the queue)
 
 #Declare the queue as an array (it has a fixed length)
