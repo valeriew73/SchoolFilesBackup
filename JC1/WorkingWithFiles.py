@@ -62,7 +62,7 @@ try:
 except FileNotFoundError:
     print("File was not found.")
 
-# you can also use for line in file to read 
+# you can also use "for line in file" to read 
 FileHandle = open("StudentNames.txt", 'r')
 for line in FileHandle:
     print(line)
