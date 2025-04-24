@@ -1,0 +1,28 @@
+READFILE
+WRITEFILE
+
+READ
+WRITE 
+APPEND
+
+EOF()
+
+GETRECORD
+PUTRECORD
+
+DECLARE MyFile, Line: STRING
+MyFile <- "MyFile.txt"
+OPENFILE MyFile FOR READ
+WHILE NOT EOF() DO
+    READFILE MyFile, Line
+    OUTPUT Line
+ENDWHILE
+CLOSEFILE MyFile
+
+// Alt (this one works for python too)
+READFILE MyFile, Line
+WHILE Line <> "" DO
+    OUTPUT Line
+    READFILE MyFile, Line
+ENDWHILE
+CLOSEFILE MyFile
