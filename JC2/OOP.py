@@ -146,14 +146,4 @@ book2 = Book("Learning Kali Linux", "Ric Messier", 49.99)
 # bbs_library.addBook(book1)
 # bbs_library.printLibraryBooks()
 
-#Method overriding
-a = 5
-b = 6 
-c = 7 
-def add(a, b):
-    print(a + b)
-def add(a, b, c):
-    print(a + b + c)
 
-add(a, b)
-add(a, b, c)
