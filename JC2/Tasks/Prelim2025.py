@@ -38,3 +38,35 @@ class Phone(Device):
         print(f"Price: ${self.__price}")
         print(f"Storage: {self.__storage}")
 
+class Laptop(Device):
+    def __init__(self, device_name, brand, battery_life, price, ram):
+        super.__init__(self, device_name, brand, battery_life, price)
+        self.__ram = ram
+
+    def get_ram(self):
+        return self.__ram
+    
+    def print_details(self):
+        print(f"Name of device: {self.__device_name}")
+        print(f"Brand of device: {self.__brand}")
+        print(f"Battery life: {self.__battery_life}h")
+        print(f"Price: ${self.__price}")
+        print(f"RAM: {self.__ram}")
+
+class Tablet(Device):
+    def __init__(self, device_name, brand, battery_life, price, screen_size):
+        super.__init__(self, device_name, brand, battery_life, price)
+        self.__screen_size = screen_size
+
+    def get_screen_size(self):
+        return self.__screen_size
+    
+    def print_details(self):
+        print(f"Name of device: {self.__device_name}")
+        print(f"Brand of device: {self.__brand}")
+        print(f"Battery life: {self.__battery_life}h")
+        print(f"Price: ${self.__price}")
+        print(f"Screen size: {self.__screen_size}")
+
+def ReadDeviceData():
+    DeviceArray = [Device]
