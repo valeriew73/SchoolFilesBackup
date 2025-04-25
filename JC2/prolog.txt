@@ -36,4 +36,6 @@ siblings(Person, Sibling) :-
     parent(P, Sibling), 
         Person \= Sibling.
 
-/* and = ,   or = ;   not = \ */
+/* and = ,  
+ or = ;   
+ not = \ */
