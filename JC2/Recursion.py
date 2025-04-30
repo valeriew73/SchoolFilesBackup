@@ -75,4 +75,7 @@ fib_array = []
 for i in range(1, num_of_ele + 1):
     fib_array.append(fibonacci(i))
 
+arr = [['abc','bcg'],[]]
+print(arr[0][0][0:2])
 
+import random

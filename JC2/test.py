@@ -14,6 +14,3 @@ def modify(immutable_var):
     print(f"inside function: {immutable_var}")
 modify(array)
 print(f"after function, outside function: {array}")
-
-string = "ABCD"
-string[0] = "A"
