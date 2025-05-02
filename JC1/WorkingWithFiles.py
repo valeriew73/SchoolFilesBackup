@@ -75,3 +75,8 @@ for i in range(10):
     myArr[i] = text.strip()
 #.read puts the entire file in one variable
 file.close()
+
+line = file.readline().strip() 
+while line != "":
+    print(line)
+    line = file.readline().strip()
