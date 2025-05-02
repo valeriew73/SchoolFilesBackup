@@ -66,7 +66,6 @@ class Tablet(Device):
         print(f"Brand of device: {self.__brand}")
         print(f"Battery life: {self.__battery_life}h")
         print(f"Price: ${self.__price}")
-<<<<<<< HEAD
         print(f"Screen Size: {self.__screen_size}")
 
 def ReadDeviceData():
@@ -97,9 +96,4 @@ def ChooseDevice(PDeviceArray):
             NewDeviceArray.append(device)
     if len(NewDeviceArray) == 0:
         print("There are no devices that meet the requirements.")
-=======
-        print(f"Screen size: {self.__screen_size}")
 
-def ReadDeviceData():
-    DeviceArray = [Device]
->>>>>>> b6cb2a81685cffaf17ddb4975df428893befe706
