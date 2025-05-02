@@ -78,4 +78,3 @@ for i in range(1, num_of_ele + 1):
 arr = [['abc','bcg'],[]]
 print(arr[0][0][0:2])
 
-import random
