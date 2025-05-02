@@ -96,4 +96,3 @@ def ChooseDevice(PDeviceArray):
             NewDeviceArray.append(device)
     if len(NewDeviceArray) == 0:
         print("There are no devices that meet the requirements.")
-
