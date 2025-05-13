@@ -14,7 +14,7 @@ Recursive function = a function that calls itself in its definition.
 Everytime a function is called, it acts as an interrupt so the last instruction is pushed into a call stack to be executed after the interrupt is serviced.
 The values of variables, state of the program, etc. is also saved in the call stack.
 The call stack has a maximum capacity due to the RAM so when there's no base case (terminating case) or the base case is not met in a recursive function like in the above example, 
-the function keeps calling itself and the stack becomes full.
+the function keeps calling itself and the stack becomes full. -> Maximum recursion depth exceeded
 
 Recursive function has to have a:
 - Recursive case: the part that calls the function in the definition
@@ -22,7 +22,7 @@ Recursive function has to have a:
 '''
 
 def factorial(num):
-    if num == 0: #base case (condition where the function returns a known value)
+    if num == 0: #base case (condition where the function returns a known value) = has to meet at least once
         return 1
     else:
         return num * factorial(num - 1)
@@ -61,20 +61,14 @@ letter = input("Please enter a letter to count: ")
 print(letter_count("abacad"))
 
 
-def fibonacci(num_of_ele):
-    if num_of_ele == 1:
-        return 0
-    elif num_of_ele == 2:
+def fibonacci(num):
+    if num <= 1:
         return 1
     else:
-        return fibonacci(num_of_ele - 2) + fibonacci(num_of_ele - 1)
+        return fibonacci(num - 2) + fibonacci(num - 1)
 
 num_of_ele = int(input("Please enter the no. of elements in the fibonacci sequence: "))
 
 fib_array = []
 for i in range(1, num_of_ele + 1):
     fib_array.append(fibonacci(i))
-
-arr = [['abc','bcg'],[]]
-print(arr[0][0][0:2])
-

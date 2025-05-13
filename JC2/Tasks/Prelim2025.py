@@ -69,4 +69,4 @@ class Tablet(Device):
         print(f"Screen size: {self.__screen_size}")
 
 def ReadDeviceData():
-    DeviceArray = [Device]
+    DeviceArray = [Device()]
