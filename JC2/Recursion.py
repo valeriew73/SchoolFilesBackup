@@ -11,10 +11,12 @@ Recursive function = a function that calls itself in its definition.
 #FIXME: the program crashes and an error occurs because maximum recursion depth is exceeded
 
 ''' 
-Everytime a function is called, it acts as an interrupt so the last instruction is pushed into a call stack to be executed after the interrupt is serviced.
+Everytime a function is called, it acts as an interrupt so the last instruction is pushed into a call
+stack to be executed after the interrupt is serviced.
 The values of variables, state of the program, etc. is also saved in the call stack.
-The call stack has a maximum capacity due to the RAM so when there's no base case (terminating case) or the base case is not met in a recursive function like in the above example, 
-the function keeps calling itself and the stack becomes full. -> Maximum recursion depth exceeded
+The call stack has a maximum capacity due to the RAM so when there's no base case 
+(terminating case) or the base case is not met in a recursive function like in the above example, 
+the function keeps calling itself and the stack becomes full.
 
 Recursive function has to have a:
 - Recursive case: the part that calls the function in the definition

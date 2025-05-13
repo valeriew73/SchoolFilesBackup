@@ -66,7 +66,7 @@ class Tablet(Device):
         print(f"Brand of device: {self.__brand}")
         print(f"Battery life: {self.__battery_life}h")
         print(f"Price: ${self.__price}")
-        print(f"Screen size: {self.__screen_size}")
+        print(f"Screen Size: {self.__screen_size}")
 
 def ReadDeviceData():
-    DeviceArray = [Device()]
+    DeviceArray = [Device]
