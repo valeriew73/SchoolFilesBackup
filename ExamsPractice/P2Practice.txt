@@ -1,0 +1,15 @@
+// Records
+
+// 1D and 2D arrays
+
+// File-handling
+
+// ADTs (stack, queues and linked lists)
+
+// Selection, iteration
+
+// Procedures, functions
+
+// Bubble sort
+
+// Linear Search
