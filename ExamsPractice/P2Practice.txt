@@ -1,13 +1,112 @@
 // Records
+TYPE TStudentRecord
+    DECLARE Name: STRING
+    DECLARE Class: STRING 
+    DECLARE DOB: DATE
+ENDTYPE
+
+DECLARE Student1: TStudentRecord
+Student1.Name <- "Valerie"
+Student1.Class <- "JC2 Truth"
 
 // 1D and 2D arrays
+DECLARE 1DArray: ARRAY[1:10] OF INTEGER
+DECLARE 2DArray: ARRAY[1:10, 1:3] OF INTEGER
+DECLARE RecordArray: ARRAY[1:10] OF TStudentRecord
 
 // File-handling
+OPENFILE "FileIdentifier.txt" FOR READ/WRITE/APPEND
+WHILE NOT EOF("FileIdentifier.txt") DO
+    READFILE/WRITEFILE "FileIdentifier.txt", Line
+ENDWHILE
+CLOSEFILE "FileIdentifier.txt"
+
 
 // ADTs (stack, queues and linked lists)
+DECLARE Stack: ARRAY[1:10] OF INTEGER
+DECLARE BasePointer, TopPointer: INTEGER
+
+CONSTANT BasePointer = 1
+TopPointer <- 0  // BasePointer - 1
+
+PROCEDURE Push(Item: INTEGER)
+    IF TopPointer >= 10 
+        THEN
+            OUTPUT "Stack is full, cannot push"
+        ELSE
+            Stack[TopPointer] <- Item
+            TopPointer <- TopPointer + 1
+    ENDIF 
+ENDPROCEDURE
+
+FUNCTION Pop() RETURNS INTEGER 
+    IF TopPointer < BasePointer
+        THEN
+            OUTPUT "Stack is empty, cannot pop"
+        ELSE
+            PopElement <- Stack[TopPointer]
+            TopPointer <- TopPointer - 1
+            RETURN PopElement
+    ENDIF
+ENDFUNCTION
+
+
+DECLARE Queue: ARRAY[1:10] OF INTEGER
+DECLARE FrontPointer, RearPointer, QueueLength: INTEGER
+FrontPointer <- 0
+RearPointer <- -1
+QueueLength <- 0
+CONSTANT QueueFul = 10
+
+PROCEDURE Enqueue(EnqueueEle: INTEGER)
+    IF QueueLength = QueueFul
+        THEN 
+            OUTPUT "Queue is full, cannot enqueue"
+        ELSE
+            IF RearPointer = 10
+                THEN 
+                    RearPointer <- 1
+                ELSE
+                    RearPointer <- RearPointer + 1
+            ENDIF
+            Queue[RearPointer] <- EnqueueEle
+            QueueLength <- QueueLength + 1
+    ENDIF
+ENDPROCEDURE
+
+FUNCTION Dequeue() RETURNS INTEGER
+    IF QueueLength = 0
+        THEN
+            OUTPUT "Queue is empty, cannot dequeue"
+            RETURN
+        ELSE
+            DequeueEle <- Queue[FrontPointer]
+            IF FrontPointer = 10
+                THEN 
+                    FrontPointer <- 1
+                ELSE
+                    FrontPointer <- FrontPointer + 1
+            ENDIF
+            QueueLength <- QueueLength - 1
+            RETURN DequeueEle
+    ENDIF
+ENDFUNCTION
 
 // Selection, iteration
+IF ---
+    THEN
+        ----
+    ELSE
+        ----
+ENDIF
 
+CASE OF Var 
+    'A': -- 
+    'B': -- 
+    'C': --
+ENDCASE
+
+FOR Count ,-
 // Procedures, functions
 
 // Bubble sort
