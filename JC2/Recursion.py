@@ -36,7 +36,7 @@ def sum_of_array(my_array):
     if len(my_array) == 1:
         return my_array[0]
     else:
-        return my_array[0] + sum_of_array(my_array[1:])    
+        return my_array[0] + sum_of_array(my_array[1:])
 
 print(sum_of_array([1, 2, 3, 4, 5]))
 
