@@ -1,4 +1,4 @@
-'''
+
 #question 1
 #1. a)
 class node:
@@ -94,7 +94,7 @@ def bubbleSort():
                 temp = theArray[y]
                 theArray[y] = theArray[y+1]
                 theArray[y+1] = temp
-'''
+
 #3. a)
 class TreasureChest:
     def __init__(self, question, answer, points):
