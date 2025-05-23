@@ -1,7 +1,3 @@
-''' 
-
-'''
-
 def printName():
     print("Name")
 

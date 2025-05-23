@@ -30,6 +30,5 @@ def Count():
     print(f"Number of odd values: {oddValues}")
     print(f"Number of even values: {evenValues}")
 
-Count()
 
-        
+Count()

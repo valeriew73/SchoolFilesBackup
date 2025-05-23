@@ -12,14 +12,14 @@ top = len(myArr) #top is the index of the last element
 swap = True #assume that swap is True at the start so the program will run + because the array is assumed to start off unsorted
 
 while (swap == True) and (top > 0): #swap var allows the program to terminate early if in a pass there are no swaps (meaning the list is sorted)
-    for index in range(0, top - 1):
+    for index in range(0, top-1): #the upperbound is top-1 because we're comparing myArr[i] with myArr[i+1] here, index will be out of range if it is comparing the last element with a nonexistent element after
         if myArr[index] > myArr[index + 1]: #swap algorithm
             temp = myArr[index]
             myArr[index] = myArr[index + 1]
             myArr[index + 1] = temp
             swap = True
         else: swap = False #if swap remains False at the end, there aren't any swaps in that pass
-    top = top - 1 #after each pass, the top element is where it's supposed to be so it isn't going to be included in the sorting algorithm anymore
+    top -= 1 #after each pass, the top element is where it's supposed to be so it isn't going to be included in the sorting algorithm anymore
     #end of pass
 
 print(myArr)

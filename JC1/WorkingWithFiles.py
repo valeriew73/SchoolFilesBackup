@@ -19,7 +19,8 @@ FileHandle = open("StudentNames.txt", "a")
 FileHandle.write("Line 4\n") 
 FileHandle.close()
 
-# Always use exception handling when reading files so that if the file is not found, the program will not crash (write mode creates a new file if the file is not existing yet)
+# Always use exception handling when reading files so that if the file is not found, the program will not crash 
+# (write mode creates a new file if the file is not existing yet)
 try:
     # Read operation 
     TextFromFileArr = [" ", " "]
@@ -41,6 +42,7 @@ except FileNotFoundError:
 
 
 #Using the read command also gives you marks in the test so you don't need to use a loop
+#read puts the entire file as string format in the variable (each line is separated with a \n)
 try:
     FileHandle = open("StudentNames.txt", 'r')
     Lines = FileHandle.read()

@@ -9,9 +9,10 @@
 
 #Declare the stack as an array (it has a fixed length)
 stack = [None for i in range(7)]
-basePointer = 0
-topPointer = -1
-Stackful = len(stack) - 1
+basePointer = 0 #index of the first element in the stack
+topPointer = -1 #index of the top element in the stack
+#topPointer starts off as basePointer-1 when it is empty, so when one element is pushed in, it will be equal to the basePointer
+Stackful = len(stack) - 1 #the last index of the stack- when the stack is full, the topPointer points to this index
 
 def pop():
     global topPointer
@@ -24,7 +25,7 @@ def pop():
 
 def push(pushelement):
     global topPointer
-    if topPointer > Stackful:
+    if topPointer == Stackful:
         print("Unable to push, Stack is full.")
     else: 
         topPointer += 1
