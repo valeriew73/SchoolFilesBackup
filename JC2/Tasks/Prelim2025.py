@@ -69,31 +69,4 @@ class Tablet(Device):
         print(f"Screen Size: {self.__screen_size}")
 
 def ReadDeviceData():
-    DeviceArray = [] # array of objects of Device
-    DevicesFile = open("Devices.txt", 'r')
-    for Line in DevicesFile:
-        LineArr = Line.strip().split(',')
-        if LineArr[0] == "Phone":
-            DeviceArray.append(Phone(LineArr[1], LineArr[2], LineArr[3], LineArr[4], LineArr[5]))
-        elif LineArr[0] == "Laptop":
-            DeviceArray.append(Laptop(LineArr[1], LineArr[2], LineArr[3], LineArr[4], LineArr[5]))
-        elif LineArr[0] == "Tablet":
-            DeviceArray.append(Tablet(LineArr[1], LineArr[2], LineArr[3], LineArr[4], LineArr[5]))
-    DevicesFile.close()
-    return DeviceArray
-
-def PrintDevices(PDeviceArray):
-    for device in PDeviceArray:
-        device.print_details()
-
-def ChooseDevice(PDeviceArray):
-    budget = float(input("Please enter the budget: "))
-    brand = input("Please enter the preferred brand:")
-    battery_life = int(input("Please enter the preferred minimum battery life:"))
-    NewDeviceArray = []
-    for device in PDeviceArray:
-        if (device.get_price() <= budget) and (device.get_brand() == brand) and (device.get_battery_life() >= battery_life):
-            NewDeviceArray.append(device)
-    if len(NewDeviceArray) == 0:
-        print("There are no devices that meet the requirements.")
-
+    DeviceArray = [Device]

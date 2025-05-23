@@ -1,16 +1,15 @@
 class Employee:
-    def __init__(self, HourlyPay, EmployeeNumber, JobTitle, PayYear2022):
+    def __init__(self, HourlyPay, EmployeeNumber, JobTitle):
         self.__HourlyPay = HourlyPay #of real
         self.__EmployeeNumber = EmployeeNumber #of string
         self.__JobTitle = JobTitle #of string
-        self.__PayYear2022 = PayYear2022 #array[0:51] of real
+        self.__PayYear2022 = [0.0 for i in range(51)] #array[0:51] of real
 
     def GetEmployeeNumber(self):
         return self.__EmployeeNumber
 
     def SetPay(self, week_num, hours_worked):
-        week_pay = hours_worked * self.__HourlyPay
-        self.__PayYear2022[week_num] = week_pay
+        self.__PayYear2022[week_num] = hours_worked * self.__HourlyPay
 
     def GetTotalPay(self):
         total = 0
@@ -19,8 +18,8 @@ class Employee:
         return total
 
 class Manager(Employee):
-    def __init__(self, HourlyPay, EmployeeNumber, JobTitle, PayYear2022, BonusValue):
-        super.__init__(HourlyPay, EmployeeNumber, JobTitle, PayYear2022)
+    def __init__(self, HourlyPay, EmployeeNumber, JobTitle, BonusValue):
+        super.__init__(HourlyPay, EmployeeNumber, JobTitle)
         self.BonusValue = BonusValue
 
     def SetPay(self, week_num, hours_worked):

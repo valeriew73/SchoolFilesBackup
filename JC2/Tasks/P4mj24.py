@@ -1,3 +1,47 @@
+def ReadWords(filename):
+    global NumOfAnswers, WordArray
+    try:
+        FileHandle = open(filename, 'r')
+        WordArray = FileHandle.read().strip().split()
+        NumOfAnswers = len(WordArray) - 1
+        FileHandle.close()
+    except FileNotFoundError:
+        print("File is not found.")
+
+difficulty = str(input("Please enter the chosen difficulty (easy, medium or hard): ")).lower()
+
+match difficulty:
+    case "easy": ReadWords("Easy.txt")
+    case "medium": ReadWords("Medium.txt")
+    case "hard": ReadWords("Hard.txt")
+    case _: difficulty = str(input("Please enter a valid chosen difficulty (easy, medium or hard): "))
+
+def Play():
+    print("The word is:", WordArray[0])
+    print(f"There are {NumOfAnswers} words that can be made with 3 or more letters")
+    Loop = True
+    Count = 0
+    while Loop:
+        UserAns = str(input("Please enter a word (Enter 'no' to stop): "))
+        if UserAns == "no":
+            print(f"Answers found: {Count/NumOfAnswers * 100}%")
+            print("Answers not found: ")
+            for answer in WordArray[:-1]:
+                if answer != "":
+                    print(answer)
+            break
+        elif UserAns in WordArray[:-1]:
+            print(f"{UserAns} is an answer.")
+            Count += 1
+            WordArray[WordArray.index(UserAns)] = ""
+        else:
+            print(f"{UserAns} is not an answer.")
+
+def ReadWords():
+    ReadWords()
+    Play()
+
+
 class Node:
     def __init__(self, Data):
         self.__LeftPointer = -1 #of type integer

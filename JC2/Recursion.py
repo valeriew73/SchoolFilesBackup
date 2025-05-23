@@ -24,7 +24,7 @@ Recursive function has to have a:
 '''
 
 def factorial(num):
-    if num == 0: #base case (condition where the function returns a known value)
+    if num == 0: #base case (condition where the function returns a known value) = has to meet at least once
         return 1
     else:
         return num * factorial(num - 1)
@@ -36,7 +36,7 @@ def sum_of_array(my_array):
     if len(my_array) == 1:
         return my_array[0]
     else:
-        return my_array[0] + sum_of_array(my_array[1:])    
+        return my_array[0] + sum_of_array(my_array[1:])
 
 print(sum_of_array([1, 2, 3, 4, 5]))
 
@@ -63,20 +63,14 @@ letter = input("Please enter a letter to count: ")
 print(letter_count("abacad"))
 
 
-def fibonacci(num_of_ele):
-    if num_of_ele == 1:
-        return 0
-    elif num_of_ele == 2:
+def fibonacci(num):
+    if num <= 1:
         return 1
     else:
-        return fibonacci(num_of_ele - 2) + fibonacci(num_of_ele - 1)
+        return fibonacci(num - 2) + fibonacci(num - 1)
 
 num_of_ele = int(input("Please enter the no. of elements in the fibonacci sequence: "))
 
 fib_array = []
 for i in range(1, num_of_ele + 1):
     fib_array.append(fibonacci(i))
-
-arr = [['abc','bcg'],[]]
-print(arr[0][0][0:2])
-
